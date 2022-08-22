@@ -1,0 +1,134 @@
+﻿<Window x:Class="OnStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:OnStore.UserControls"
+        xmlns:local="clr-namespace:OnStore"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1180" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--<titleBar>-->
+        <StackPanel Orientation = "Horizontal" Grid.ColumnSpan="2" Background="#FF444444" Panel.ZIndex="1" FlowDirection="RightToLeft" MouseDown="StackPanel_MouseDown">
+            <Button Style="{StaticResource buttonClose}">
+                <Image Width="20"  Source="/Images/close1.png" Margin="1"/>
+            </Button>
+
+            <Button  Style="{StaticResource buttonMini}">
+                <Image Width="20"  Source="/Images/mini.png" Margin="1"/>
+            </Button>
+        </StackPanel>
+
+        <!--Product Section-->
+        <Grid Grid.Row="1" Background="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Title-->
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,30">
+                <TextBlock FontWeight="SemiBold" Margin="50,0,0,0" FontFamily="Trebuchet ms" FontSize="26" VerticalAlignment="Center">Store</TextBlock>
+                <Rectangle VerticalAlignment="Stretch" Width="0.7" Margin="20,5" Fill="Gray"></Rectangle>
+                <TextBlock Text="Your Shopping Card" FontSize="26" VerticalAlignment="Center"></TextBlock>
+
+            </StackPanel>
+
+            <!--Products-->
+            <StackPanel Grid.Row="1" >
+                <ListBox Margin="100,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <uc:Product Source="/Images/bread.jpg" Title="Kerpic bread" Ref="Ref. 00123456" Color="Black" Count="1" Price="0.5 Azn"/>
+                <uc:Product Source="/Images/t shirt.jpg" Title="T-Shirt" Ref="Ref. 00123456" Color="Blue" Count="1" Price="18 Azn"/>
+                <uc:Product Source="/Images/trouser.jpg" Title="Trouser" Ref="Ref. 00123456" Color="Brown" Count="1" Price="50 Azn"/>
+                <uc:Product Source="/Images/shoe.jpg" Title="Sneaker" Ref="Ref. 00123456" Color="Brown" Count="1" Price="45 Azn"/>
+                </ListBox>
+            </StackPanel>
+                <!--<ScrollBar x:Name="scrbar" Grid.Row="1"  Orientation="Vertical" HorizontalAlignment="Right" Margin="35"></ScrollBar>-->
+            <!--Bottom Section-->
+            <Grid Grid.Row="2" Margin="80,40,150,40">
+                <Button Style="{StaticResource buttonBack}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/left.png" Width="20"/>
+                        <TextBlock Text="Back to Shop" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="Subtotal : " FontSize="16"/>
+                    <TextBlock Text="10.20 Azn" FontSize="16" FontWeight="SemiBold" Margin="30 0 0 0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!--Card Section-->
+        <Grid Grid.Column="1" Background="#4b4643" Grid.Row="1">
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="10" BlurRadius="50"/>
+            </Grid.Effect>
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="130" Margin="-30,50,0,0" Background="#4b4643" CornerRadius="10,0,0,10" Padding="10,20,5,20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Ellipse Width="8" Height="8" Fill="#8b8a89"/>
+                    <Ellipse Width="8" Height="8" Grid.Row="1" Fill="Orange"/>
+                    <Ellipse Width="8" Height="8" Fill="#8b8a89" Grid.Row="2"/>
+                </Grid>
+            </Border>
+
+            <!--Inputs-->
+            <StackPanel VerticalAlignment="Top" Margin="50,100,50,0" >
+                <TextBlock Text="Card Detalis" FontSize="24" FontWeight="SemiBold" Margin="0,0,0,70"/>
+                <TextBlock Text="Select Card Type" Style="{StaticResource titleText}"/>
+
+                <Grid Margin="0,15,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="Images/card (3).jpg" HorizontalAlignment="Left" Width="30"  Style="{StaticResource icon}"/>
+                    <Image Source="Images/card (2).jpg" Grid.Column="1" HorizontalAlignment="Center" Width="30" Style="{StaticResource icon}"/>
+                    <Image Source="Images/card4 (2).png"  Grid.Column="2" HorizontalAlignment="Right" Width="30"  Style="{StaticResource icon}"/>
+                </Grid>
+
+                <TextBlock Text="Card Number" Style="{StaticResource titleText}"/>
+                <TextBox Margin="0,5,0,30"></TextBox>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel >
+                        <TextBlock Text="Expire Date" Style="{StaticResource titleText}"/>
+                        <TextBox Margin="0,5,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Width="50" Margin="30,0,0,0">
+                        <TextBlock Text="CVV" Style="{StaticResource titleText}"/>
+                        <TextBox Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <Button Content="Checkout" Style="{StaticResource buttonCheckout}"/>
+        </Grid>
+        
+    </Grid>
+</Window>
